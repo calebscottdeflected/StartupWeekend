@@ -126,7 +126,7 @@ var InputStr = ""
         return pickerData[row]
     }
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        if row > 14 {
+        if row > 0 {
             UIView.animate(withDuration: 1.0, animations: { () -> Void in
             self.Days.alpha = 1
             })
@@ -145,13 +145,16 @@ var InputStr = ""
 
     override func viewDidLoad() {
 
-        
+        super.viewDidLoad()
+
         Days?.alpha = 0
         Next?.alpha = 0
         Sure?.layer.cornerRadius = 5
         ReThink?.layer.cornerRadius = 5
         Days?.layer.cornerRadius = 5
-        var i = 0
+        pickerData.append("- Select One -")
+        if picker != nil {
+        var i = 15
         while i <= 365 {
             if i != 1  {
                 Addition = String(i) + " Days"
@@ -164,15 +167,16 @@ var InputStr = ""
             pickerData.append(Addition)
             print(pickerData)
         // Connect data
-
+            }
         if Input == nil{
             Input = ""
         }
 
+        }else{
+            Input = ""
         }
         self.picker?.dataSource = self as! UIPickerViewDataSource;
         self.picker?.delegate = self as! UIPickerViewDelegate;
-super.viewDidLoad()
     
     }
     override func didReceiveMemoryWarning() {
@@ -180,7 +184,9 @@ super.viewDidLoad()
         // Dispose of any resources that can be recreated.
     }
     
-    
+    override var prefersStatusBarHidden: Bool {
+        return true
+    }
     
     
 }

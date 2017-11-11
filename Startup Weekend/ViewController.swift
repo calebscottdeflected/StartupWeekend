@@ -136,7 +136,9 @@ class ViewController: UIViewController {
         activityIndicatorView.stopAnimating()
     }
     override func viewDidLoad() {
-        
+        if Next != nil {
+            Input = ""
+        }
         if Input == nil{
             Input = ""
         }
