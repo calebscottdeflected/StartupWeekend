@@ -7,6 +7,7 @@
 //
 
 import UIKit
+
 var EndCost: Double!
 var Input: String!
 
